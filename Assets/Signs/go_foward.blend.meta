@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dfee599ccbf802b48a549b887394ac0a
+guid: 2ddea4aad60ac854390b6fff00b00c50
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: exit
-    second: {fileID: 2100000, guid: af67cc25469436b4c93863670f5a7f31, type: 2}
+      name: go_foward
+    second: {fileID: 2100000, guid: 73152e6c0cb4dcc46bd14de8d5bbe4b3, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -49,7 +49,7 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
@@ -66,7 +66,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0

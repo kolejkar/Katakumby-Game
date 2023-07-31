@@ -5,12 +5,15 @@ using UnityEngine.UI;
 
 public class gast : MonoBehaviour
 {
+    public List<GameObject> items;
+
     /*public Transform transform;
     public Transform current;
     public static float count;*/
     // Start is called before the first frame update
     void Start()
     {
+        items = new List<GameObject>();
         /*current = transform;
         count = -10.0f;
         transform.Rotate(Vector3.up * -180.0f);*/
@@ -37,14 +40,15 @@ public class gast : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        //Debug.Log("Touch collider in: " + coll.gameObject.name);
-        if (coll.gameObject.name == "TourchLight" && GetComponentInChildren<Renderer>().enabled == true)
+        Debug.Log("Touch collider in: " + coll.gameObject.name);
+        if (coll.gameObject.name == "TourchLight")
         {
             //Debug.Log("Light");
             coll.gameObject.GetComponent<Light>().enabled = false;
             object halo = coll.gameObject.GetComponent("Halo");
             var haloInfo = halo.GetType().GetProperty("enabled");
             haloInfo.SetValue(halo, false, null);
+            items.Add(coll.gameObject);
         }
         if (coll.gameObject.name == "gracz" && gameObject.activeSelf)
         {
@@ -62,6 +66,7 @@ public class gast : MonoBehaviour
             object halo = coll.gameObject.GetComponent("Halo");
             var haloInfo = halo.GetType().GetProperty("enabled");
             haloInfo.SetValue(halo, true, null);
+            items.Remove(coll.gameObject);
         }
         if (coll.gameObject.name == "gracz")
         {

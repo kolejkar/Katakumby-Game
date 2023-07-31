@@ -12,7 +12,7 @@ public class AxeGost : MonoBehaviour
 
     void Start()
     {
-        health = 10;
+        //health = 10;
         player = GameObject.Find("gracz");
     }
 
@@ -23,10 +23,12 @@ public class AxeGost : MonoBehaviour
         {
             if (action == 1)
             {
+                TurnLight();
                 TeleportGost();
             }
             if (action == 2)
             {
+                TurnLight();
                 KilledGost();
             }
             action = 0;
@@ -44,6 +46,19 @@ public class AxeGost : MonoBehaviour
         Debug.Log("Teleporting ...");
     }
 
+    void TurnLight()
+    {
+
+        gast gast1 = gost.transform.Find("Test").GetComponent<gast>();
+        foreach (GameObject light in gast1.items)
+        {
+            light.GetComponent<Light>().enabled = true;
+            object halo = light.GetComponent("Halo");
+            var haloInfo = halo.GetType().GetProperty("enabled");
+            haloInfo.SetValue(halo, true, null);
+        }
+    }
+
     void KilledGost()
     {
         Destroy(gost);
@@ -55,12 +70,11 @@ public class AxeGost : MonoBehaviour
     void OnTriggerEnter(Collider coll)
     {
         Debug.Log("Gost attack collider in: " + coll.gameObject.name);
-        if (coll.gameObject.name == "AxeCollider" && engine.use_axe == true)
-        {
+        if (coll.gameObject.name == "book")
+        { 
             gost = transform.parent.gameObject;
+            health -= 5;
             Debug.Log("You attack gost");
-            health = health - 5;
-            engine.use_axe = false;
             if (health == 0)
             {
                 player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);

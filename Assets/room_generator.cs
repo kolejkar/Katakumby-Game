@@ -4,21 +4,34 @@ using UnityEngine;
 
 public class room_generator : MonoBehaviour
 {
-    public GameObject door;
+    public GameObject door_normal;
+    public GameObject door_secret;
     public GameObject box;
     public GameObject bottle;
     public GameObject wood;
     // Start is called before the first frame update
     void Start()
     {
-        if (Random.Range(0, 100) < 30.0f)
+        if (Random.Range(0, 100) < 50.0f)
         {
             Debug.Log("Create doors.");
-            var obj = Instantiate(door, new Vector3(transform.position.x, transform.position.y, transform.position.z), 
-                Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
-            obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(0.0f, 0.0f, -3.75f);
-            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+            if (Random.Range(0, 100) < 70.0f)
+            {
+                
+                var obj = Instantiate(door_normal, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+                    Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+                obj.transform.parent = gameObject.transform;
+                obj.transform.localPosition += new Vector3(0.0f, 0.0f, -3.75f);
+                obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+            }
+            else
+            {
+                var obj = Instantiate(door_secret, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+                    Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+                obj.transform.parent = gameObject.transform;
+                obj.transform.localPosition += new Vector3(0.0f, 0.0f, -3.75f);
+                obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+            }
         }
         if (gameObject.name == "room_end")
         {
@@ -28,6 +41,11 @@ public class room_generator : MonoBehaviour
         if (gameObject.name == "room_normal")
         {
             NormalItems();
+        }
+        else
+        if (gameObject.name == "room_crossing")
+        {
+            CrossingItems();
         }
     }
 
@@ -172,6 +190,45 @@ public class room_generator : MonoBehaviour
             obj.transform.parent = gameObject.transform;
             obj.transform.localPosition += new Vector3(-3.256f, 1.146f, 1.965f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 8.19f, obj.transform.localRotation.z));
+        }
+    }
+
+    void CrossingItems()
+    {
+        int value = Random.Range(0, 100);
+        Debug.Log("Create items. Room crossing " + value);
+        if (value < 90.0f)
+        {
+            var obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+              Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localPosition += new Vector3(3.047f, 0.553f, -2.617f);
+            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 18.0f, obj.transform.localRotation.z));
+            obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+              Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localPosition += new Vector3(2.799f, 0.35f, -2.438f);
+            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 30.0f, obj.transform.localRotation.z));
+            obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+              Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localPosition += new Vector3(3.137f, 0.35f, -0.901f);
+            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+            obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+              Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localPosition += new Vector3(2.555f, 0.35f, -1.659f);
+            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+            obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+              Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localPosition += new Vector3(2.346f, 0.601f, -1.462f);
+            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + -30.0f, obj.transform.localRotation.z));
+            obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+              Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localPosition += new Vector3(2.211f, 0.567f, -2.28f);
+            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + -30.0f, obj.transform.localRotation.z));
         }
     }
 }
