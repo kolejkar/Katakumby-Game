@@ -5,11 +5,12 @@ using UnityEngine.UI;
 
 public class engine : MonoBehaviour
 {
-    public static bool use_axe;
+    public bool use_axe;
 
     public static int wood_boards = 0;
     public static int gasts = 0;
     public static int water = 0;
+    public static int battery = 0;
     public int oldgasts;
 
     public Text info;
@@ -34,23 +35,25 @@ public class engine : MonoBehaviour
 
     private bool isGrounded;
 
-    public Transform axe;
-    private float timer = 0.0f;
-    private bool isFire;
+    public Transform book;
 
     public GameObject light;
 
     public Camera cam;
 
+    //dinamite
+    public GameObject dinamite;
+    public Transform dinamitePoint;
+
+
     // Start is called before the first frame update
     void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
-        info.text = "Woods: " + wood_boards + " Water: " + water + "\nGasts: " + gasts;
-        use_axe = false;
-        isFire = false;
+        info.text = "Woods: " + wood_boards + " Water: " + water + "Batteries: " + battery + "\nGasts: " + gasts;
         //power = 20;
         light.SetActive(false);
+        //axe_rotate = axe.rotation;
     }
 
     // Update is called once per frame
@@ -95,9 +98,9 @@ public class engine : MonoBehaviour
         {
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo);
-            if (hit)
+            if (hit && hitInfo.distance < 1.75f)
             {
-                Debug.Log("Hit " + hitInfo.transform.gameObject.name);
+                Debug.Log("Hit " + hitInfo.transform.gameObject.name + " " + hitInfo.distance);
                 if (hitInfo.transform.gameObject.name == "box")
                 {
                     Renderer rend = hitInfo.transform.gameObject.GetComponent<Renderer>();
@@ -110,6 +113,12 @@ public class engine : MonoBehaviour
                 {
                     Destroy(hitInfo.collider.gameObject);
                     wood_boards++;
+                }
+                else
+                if (hitInfo.transform.gameObject.name == "Battery")
+                {
+                    Destroy(hitInfo.collider.gameObject);
+                    battery++;
                 }
                 else
                 if (hitInfo.transform.gameObject.name == "bottle Variant")
@@ -151,60 +160,57 @@ public class engine : MonoBehaviour
 
                     }
                 }
-                info.text = "Woods: " + wood_boards + " Water: " + water + "\nGasts: " + gasts;
+                else
+                if (hitInfo.transform.gameObject.name == "WoodDoor")
+                {
+                    GameObject door = hitInfo.transform.parent.gameObject;
+                    if (door.GetComponent<DoorEngine>().isOpen == true)
+                    {
+                        door.GetComponent<DoorEngine>().closeDoor = true;
+                    }
+                    else
+                    {
+                        door.GetComponent<DoorEngine>().openDoor = true;
+                    }
+                    
+                }
+                //info.text = "Woods: " + wood_boards + " Water: " + water + "Batteries: " + battery + "\nGasts: " + gasts;
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E) && !isFire/*power > 0*/)
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            //set dinamite
+            if (wood_boards > 0 && water > 0)
+            {
+                Instantiate(dinamite, dinamitePoint.position, Quaternion.Euler(0.0f, 0.0f, 0.0f));
+                water--;
+                wood_boards--;
+
+                info.text = "Woods: " + wood_boards + " Water: " + water + "Batteries: " + battery + "\nGasts: " + gasts;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.E))
         {
             if (light.activeSelf)
             {
                 light.SetActive(false);
-                axe.gameObject.SetActive(true);
+                book.gameObject.SetActive(true);
+                //axe.rotation = axe_rotate;
             }
             else
             {
                 light.SetActive(true);
-                axe.gameObject.SetActive(false);
+                light.GetComponent<Light>().enabled = true;
+                object halo = light.GetComponent("Halo");
+                var haloInfo = halo.GetType().GetProperty("enabled");
+                haloInfo.SetValue(halo, true, null);
+                book.gameObject.SetActive(false);
             }
             //Debug.Log("Wood boards: " + wood_boards);
         }
-        /*if (Input.GetKeyDown(KeyCode.Q) && batteries > 0)
-        {
-            batteries--;
-            power = 100;
-        }*/
-        if (Input.GetButtonDown("Fire1") && !isFire)
-        {
-            oldgasts = gasts;
-            use_axe = true;
-            axe.GetComponent<Animator>().Play("Use");
-            timer = 5.0f;
-            isFire = true;
-        }
 
-        if (!use_axe)
-        {
-            isFire = false;
-            if (oldgasts != gasts)
-            {
-                info.text = "Woods: " + wood_boards + " Water: " + water + "\nGasts: " + gasts;
-            }
-        }
-
-        timer -= Time.deltaTime;
-        if (timer <= 0.0f && isFire)
-        {
-            Attack();
-        }
+        info.text = "Woods: " + wood_boards + " Water: " + water + "Batteries: " + battery + "\nGasts: " + gasts;
     }
-
-    void Attack()
-    {
-        //axe.localRotation = Quaternion.Euler(-45.0f, 0f, 0f);
-        timer = 0.0f;
-        isFire = false;
-        use_axe = false;
-    }
-
 }
