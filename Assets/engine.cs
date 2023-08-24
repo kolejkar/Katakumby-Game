@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class engine : MonoBehaviour
 {
@@ -173,6 +174,15 @@ public class engine : MonoBehaviour
                         door.GetComponent<DoorEngine>().openDoor = true;
                     }
                     
+                }
+                else
+                if (hitInfo.transform.gameObject.name == "box_red")
+                {
+                    CheckLevel.corridors += 2;
+                    CheckLevel.rooms += 1;
+                    CheckLevel.treasures = CheckLevel.levelId / 7;
+                    CheckLevel.levelId++;
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
                 //info.text = "Woods: " + wood_boards + " Water: " + water + "Batteries: " + battery + "\nGasts: " + gasts;
             }
