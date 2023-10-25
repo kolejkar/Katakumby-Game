@@ -44,10 +44,11 @@ public class gast : MonoBehaviour
         if (coll.gameObject.name == "TourchLight")
         {
             //Debug.Log("Light");
-            coll.gameObject.GetComponent<Light>().enabled = false;
+            TourchLight(coll.gameObject, false);
+            /*coll.gameObject.GetComponent<Light>().enabled = false;
             object halo = coll.gameObject.GetComponent("Halo");
             var haloInfo = halo.GetType().GetProperty("enabled");
-            haloInfo.SetValue(halo, false, null);
+            haloInfo.SetValue(halo, false, null);*/
             items.Add(coll.gameObject);
         }
         if (coll.gameObject.name == "gracz" && gameObject.activeSelf)
@@ -58,19 +59,32 @@ public class gast : MonoBehaviour
 
     void OnTriggerExit(Collider coll)
     {
-        //Debug.Log("Touch collider in: " + coll.gameObject.name);
+        Debug.Log("Touch collider out: " + coll.gameObject.name);
         if (coll.gameObject.name == "TourchLight")
         {
             //Debug.Log("Light");
-            coll.gameObject.GetComponent<Light>().enabled = true;
+            TourchLight(coll.gameObject, true);
+            /*coll.gameObject.GetComponent<Light>().enabled = true;
             object halo = coll.gameObject.GetComponent("Halo");
             var haloInfo = halo.GetType().GetProperty("enabled");
-            haloInfo.SetValue(halo, true, null);
+            haloInfo.SetValue(halo, true, null);*/
             items.Remove(coll.gameObject);
         }
         if (coll.gameObject.name == "gracz")
         {
             coll.gameObject.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
+        }
+    }
+
+    private void TourchLight(GameObject tourchlight, bool active)
+    {
+        foreach (Transform light in tourchlight.transform)
+        {
+            light.gameObject.SetActive(active);
+            /*light.GetComponent<Light>().enabled = true;
+            object halo = light.GetComponent("Halo");
+            var haloInfo = halo.GetType().GetProperty("enabled");
+            haloInfo.SetValue(halo, true, null);*/
         }
     }
 }

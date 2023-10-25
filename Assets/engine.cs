@@ -212,10 +212,10 @@ public class engine : MonoBehaviour
             else
             {
                 light.SetActive(true);
-                light.GetComponent<Light>().enabled = true;
+                /*light.GetComponent<Light>().enabled = true;
                 object halo = light.GetComponent("Halo");
                 var haloInfo = halo.GetType().GetProperty("enabled");
-                haloInfo.SetValue(halo, true, null);
+                haloInfo.SetValue(halo, true, null);*/
                 book.gameObject.SetActive(false);
             }
             //Debug.Log("Wood boards: " + wood_boards);
