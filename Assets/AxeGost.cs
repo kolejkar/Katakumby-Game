@@ -52,10 +52,11 @@ public class AxeGost : MonoBehaviour
         gast gast1 = gost.transform.Find("Test").GetComponent<gast>();
         foreach (GameObject light in gast1.items)
         {
-            light.GetComponent<Light>().enabled = true;
+            TourchLight(light, true);
+            /*light.GetComponent<Light>().enabled = true;
             object halo = light.GetComponent("Halo");
             var haloInfo = halo.GetType().GetProperty("enabled");
-            haloInfo.SetValue(halo, true, null);
+            haloInfo.SetValue(halo, true, null);*/
         }
     }
 
@@ -98,6 +99,18 @@ public class AxeGost : MonoBehaviour
                 
                 player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
             }
+        }
+    }
+
+    private void TourchLight(GameObject tourchlight, bool active)
+    {
+        foreach (Transform light in tourchlight.transform)
+        {
+            light.gameObject.SetActive(active);
+            /*light.GetComponent<Light>().enabled = true;
+            object halo = light.GetComponent("Halo");
+            var haloInfo = halo.GetType().GetProperty("enabled");
+            haloInfo.SetValue(halo, true, null);*/
         }
     }
 }

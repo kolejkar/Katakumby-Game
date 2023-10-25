@@ -11,10 +11,10 @@ public class crossing_genetator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Random.Range(0, 100) < 30.0f)
+        if (Random.Range(0, 100) < 50.0f)
         {
             Debug.Log("Create doors.");
-            float id = Random.Range(0, 2);
+            float id = Random.Range(0, 3);
             if (id == 0)
             {
                 if (Random.Range(0, 100) < 50.0f)
@@ -42,7 +42,7 @@ public class crossing_genetator : MonoBehaviour
                     Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                     obj.transform.parent = gameObject.transform;
                     obj.transform.localPosition += new Vector3(0.0f, 0.0f, -1.75f);
-                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 180.0f, obj.transform.localRotation.z));
                 }
                 else
                 {
@@ -50,7 +50,7 @@ public class crossing_genetator : MonoBehaviour
                     Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                     obj.transform.parent = gameObject.transform;
                     obj.transform.localPosition += new Vector3(0.0f, 0.0f, -1.75f);
-                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 180.0f, obj.transform.localRotation.z));
                 }
             }
             if (id == 2)
@@ -61,7 +61,7 @@ public class crossing_genetator : MonoBehaviour
                     Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                     obj.transform.parent = gameObject.transform;
                     obj.transform.localPosition += new Vector3(-1.75f, 0.0f, 0.0f);
-                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y - 90.0f, obj.transform.localRotation.z));
                 }
                 else
                 {
@@ -69,7 +69,7 @@ public class crossing_genetator : MonoBehaviour
                     Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                     obj.transform.parent = gameObject.transform;
                     obj.transform.localPosition += new Vector3(-1.75f, 0.0f, 0.0f);
-                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 90.0f, obj.transform.localRotation.z));
+                    obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y - 90.0f, obj.transform.localRotation.z));
                 }
             }
         }

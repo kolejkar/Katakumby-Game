@@ -12,7 +12,7 @@ public class room_generator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (Random.Range(0, 100) < 50.0f)
+        if (Random.Range(0, 100) < 50.0f && !(gameObject.name == "room_end"))
         {
             Debug.Log("Create doors.");
             if (Random.Range(0, 100) < 70.0f)
@@ -22,7 +22,7 @@ public class room_generator : MonoBehaviour
                     Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                 obj.transform.parent = gameObject.transform;
                 obj.transform.localPosition += new Vector3(0.0f, 0.0f, -3.75f);
-                obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+                obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 180.0f, obj.transform.localRotation.z));
             }
             else
             {
@@ -30,7 +30,7 @@ public class room_generator : MonoBehaviour
                     Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                 obj.transform.parent = gameObject.transform;
                 obj.transform.localPosition += new Vector3(0.0f, 0.0f, -3.75f);
-                obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
+                obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 180.0f, obj.transform.localRotation.z));
             }
         }
         if (gameObject.name == "room_end")
