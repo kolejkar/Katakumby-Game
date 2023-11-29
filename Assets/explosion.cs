@@ -43,4 +43,13 @@ public class explosion : MonoBehaviour
             startTime -= Time.deltaTime;
         }
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.collider.gameObject.transform.parent.gameObject.name == "secret(Clone)")
+        {
+            GameObject wall = collision.collider.gameObject;
+            wall.GetComponent<wall_health>().health -= Random.Range(2, 4);
+        }
+    }
 }

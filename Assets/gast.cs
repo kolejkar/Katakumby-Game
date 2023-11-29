@@ -40,7 +40,7 @@ public class gast : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        Debug.Log("Touch collider in: " + coll.gameObject.name);
+        //Debug.Log("Touch collider in: " + coll.gameObject.name);
         if (coll.gameObject.name == "TourchLight")
         {
             //Debug.Log("Light");
@@ -59,7 +59,7 @@ public class gast : MonoBehaviour
 
     void OnTriggerExit(Collider coll)
     {
-        Debug.Log("Touch collider out: " + coll.gameObject.name);
+        //Debug.Log("Touch collider out: " + coll.gameObject.name);
         if (coll.gameObject.name == "TourchLight")
         {
             //Debug.Log("Light");

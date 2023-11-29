@@ -6,7 +6,7 @@ public class AxeGost : MonoBehaviour
 {
     public int health;
     private GameObject gost;
-    private int action;
+    public int action;
     private float timer = 0.0f;
 
 
@@ -66,6 +66,7 @@ public class AxeGost : MonoBehaviour
     }
 
     public AudioSource dead;
+    public AudioSource unVisible;
     public GameObject player;
 
     void OnTriggerEnter(Collider coll)
@@ -73,32 +74,9 @@ public class AxeGost : MonoBehaviour
         Debug.Log("Gost attack collider in: " + coll.gameObject.name);
         if (coll.gameObject.name == "book")
         { 
-            gost = transform.parent.gameObject;
             health -= 5;
             Debug.Log("You attack gost");
-            if (health == 0)
-            {
-                player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
-                Debug.Log("Killed gost");
-                dead.Play();
-                timer = 1.0f;
-                action = 2;
-                engine.gasts = engine.gasts + 1;
-            }
-            else
-            {
-                //gast.tick = -gast.tick;
-                timer = 10.0f;
-                action = 1;
-                //gost.GetComponentInChildren<Renderer>().enabled = false;
-                var renderers = gost.GetComponentsInChildren<Renderer>();
-                foreach (Renderer r in renderers)
-                {
-                    r.enabled = !r.enabled;
-                }
-                
-                player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
-            }
+            UpdateGost(transform.parent.gameObject);
         }
     }
 
@@ -111,6 +89,36 @@ public class AxeGost : MonoBehaviour
             object halo = light.GetComponent("Halo");
             var haloInfo = halo.GetType().GetProperty("enabled");
             haloInfo.SetValue(halo, true, null);*/
+        }
+    }
+
+    public void UpdateGost(GameObject gost1)
+    {
+        Debug.Log(gost1.name);
+        this.gost = gost1;
+        if (health < 0)
+        {
+            player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
+            Debug.Log("Killed gost");
+            dead.Play();
+            timer = 1.0f;
+            action = 2;
+            engine.gasts = engine.gasts + 1;
+        }
+        else
+        {
+            //gast.tick = -gast.tick;
+            unVisible.Play();
+            timer = 10.0f;
+            action = 1;
+            //gost.GetComponentInChildren<Renderer>().enabled = false;
+            var renderers = this.gost.GetComponentsInChildren<Renderer>();
+            foreach (Renderer r in renderers)
+            {
+                r.enabled = !r.enabled;
+            }
+
+            player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
         }
     }
 }
