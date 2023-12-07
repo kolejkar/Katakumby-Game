@@ -3,7 +3,22 @@ guid: eb7f839fa71b13441897575d74362b80
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Metal_chest
+    second: {fileID: 2100000, guid: 10e7d35488ffa1e4294bea2303c4ef42, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Wood_chest
+    second: {fileID: 2100000, guid: 40c4c23cf6c74ca469f083a85574f6e6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood_cap_chest
+    second: {fileID: 2100000, guid: efedef96d8d931746b7b3ab5110e1e8f, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -61,7 +76,7 @@ ModelImporter:
     useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
-    normalImportMode: 0
+    normalImportMode: 1
     tangentImportMode: 3
     normalCalculationMode: 4
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
@@ -87,7 +102,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 0
+  animationType: 2
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
