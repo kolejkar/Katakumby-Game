@@ -287,11 +287,25 @@ public class engine : MonoBehaviour
                     GameObject tmp_gost = hitInfo.transform.gameObject;
                     Debug.Log(tmp_gost.name);
                     AxeGost axeGost = tmp_gost.transform.parent.Find("AttackSphere").GetComponent<AxeGost>();
-                    axeGost .health -= 4;
+                    axeGost.health -= 4;
                     axeGost.UpdateGost(tmp_gost.transform.parent.gameObject);
                     /*hide_gost = tmp_gost.transform.parent.Find("AttackSphere").GetComponent<AudioSource>();
                     Debug.Log(hide_gost.gameObject.name);
                     hide_gost.Play();*/
+                }
+            }
+        }
+        if (Input.GetButtonDown("Fire1") && light.activeSelf)
+        {
+            RaycastHit hitInfo = new RaycastHit();
+            bool hit = Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo);
+            if (hit && hitInfo.distance < 1.75f)
+            {
+                Debug.Log("Tourch hit p: " + hitInfo.transform.parent.gameObject.name + " " + hitInfo.distance);
+                if (hitInfo.transform.parent.gameObject.name == "candlle" || hitInfo.transform.parent.gameObject.name == "candlle (1)")
+                {
+                    GameObject light = hitInfo.transform.parent.gameObject;
+                    light.GetComponent<OpenLight>().SetLight();
                 }
             }
         }

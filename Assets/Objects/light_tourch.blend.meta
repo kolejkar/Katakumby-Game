@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: eb7f839fa71b13441897575d74362b80
+guid: 9fa2712a7730fc44cbcf6541950ebebf
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,18 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Metal_chest
-    second: {fileID: 2100000, guid: 10e7d35488ffa1e4294bea2303c4ef42, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Wood_chest
-    second: {fileID: 2100000, guid: 40c4c23cf6c74ca469f083a85574f6e6, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: wood_cap_chest
-    second: {fileID: 2100000, guid: efedef96d8d931746b7b3ab5110e1e8f, type: 2}
+      name: braz
+    second: {fileID: 2100000, guid: 6241020710112834493f625a4f493e3d, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
@@ -51,7 +41,7 @@ ModelImporter:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
-    addColliders: 0
+    addColliders: 1
     useSRGBMaterialColor: 1
     sortHierarchyByName: 1
     importVisibility: 1
@@ -102,7 +92,7 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
-  animationType: 2
+  animationType: 0
   humanoidOversampling: 1
   additionalBone: 0
   userData: 
