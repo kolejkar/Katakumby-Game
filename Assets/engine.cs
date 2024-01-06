@@ -216,7 +216,11 @@ public class engine : MonoBehaviour
                 {
                     CheckLevel.corridors += 2;
                     CheckLevel.rooms += 1;
+<<<<<<< HEAD
                     CheckLevel.treasures = CheckLevel.levelId / 7 + 1;
+=======
+                    CheckLevel.treasures = CheckLevel.levelId / 7;
+>>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
                     CheckLevel.levelId++;
                     //NavMeshBake.surfaces.Clear();
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);

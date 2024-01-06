@@ -49,7 +49,11 @@ ModelImporter:
     importCameras: 1
     importLights: 1
     swapUVChannels: 0
+<<<<<<< HEAD
     generateSecondaryUV: 1
+=======
+    generateSecondaryUV: 0
+>>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
