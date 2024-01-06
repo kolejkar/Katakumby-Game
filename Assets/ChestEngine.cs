@@ -12,10 +12,13 @@ public class ChestEngine : MonoBehaviour
     public ChestItems chestItems;
     public bool isEmpty;
 
+    public bool isGast;
+
     // Start is called before the first frame update
     void Start()
     {
         isOpen = false;
+        isGast = false;
         RandItems();
     }
 
@@ -50,7 +53,26 @@ public class ChestEngine : MonoBehaviour
             closeChest = false;
             isOpen = false;
         }
+        if (isEmpty == true)
+        {
+            SpawnGast();
+        }
         //Debug.Log(doorPoint.localEulerAngles.y);
+    }
+
+    public void SpawnGast()
+    {
+        if (isGast == false)
+        {
+            int p = Random.Range(0, 100);
+            Debug.Log(p);
+            if (p < 30.0f)
+            {
+                CreateGast createGast = this.GetComponent<CreateGast>();
+                createGast.enabled = true;
+            }
+            isGast = true;
+        }
     }
 
     public class ChestItems

@@ -11,9 +11,11 @@ public class CheckLevel : MonoBehaviour
     public GameObject level;
     private GameObject obj;
 
-    public static int corridors = 2;
+    public LocalNavMeshBuilder localNavMeshBuilder;
+
+    public static int corridors = 4;
     public static int rooms = 1;
-    public static int treasures = 0;
+    public static int treasures = 1;
     public static int levelId = 1;
 
     //private bool load = false;
@@ -34,7 +36,7 @@ public class CheckLevel : MonoBehaviour
         {
             if (rule.Tag == "corridor")
             {
-                rule.MinAmount = levelId;
+                rule.MinAmount = corridors - levelId;
                 rule.MaxAmount = corridors;
 
             }
@@ -51,8 +53,13 @@ public class CheckLevel : MonoBehaviour
                 rule.MaxAmount = treasures;
             }
         }
+
         levelGenerator.MaxLevelSize = corridors + rooms + treasures + 1;
         levelGenerator.MaxAllowedOrder = levelGenerator.MaxLevelSize;
+        //Debug.Log(levelGenerator.MaxLevelSize * 100.0f);
+        //localNavMeshBuilder.m_Size = new Vector3(levelGenerator.MaxLevelSize * 100.0f, 40.0f, levelGenerator.MaxLevelSize * 100.0f);
+        Debug.Log(levelId * 100.0f);
+        localNavMeshBuilder.m_Size = new Vector3(levelId * 100.0f, 40.0f, levelId * 100.0f);
         Debug.Log("Level: " + levelId + "Seed: " + levelGenerator.Seed);
         level_id = levelId;
     }

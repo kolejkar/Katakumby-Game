@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 308440255f709b448a28883c9aaccf80
+guid: 54312e98d506a844196161e5dfb78619
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable: []
@@ -7,8 +7,28 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: brick_corner
+    second: {fileID: 2100000, guid: 52d3583ee54108948ab2c9d3e2a8f1d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: concrete
-    second: {fileID: 2100000, guid: 6668a1c50fd687540a146a5177acde26, type: 2}
+    second: {fileID: 2100000, guid: dcdf60c5dc9aac041b021b1007d3887c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: room_concrete
+    second: {fileID: 2100000, guid: 387f75292fdf7ef4988b78a4eec6e36d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: room_crossing_brick
+    second: {fileID: 2100000, guid: 3e5c29d2a8ebb8a419db3ba554d09192, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 1c7631b6c78b98a46943b028a039c2db, type: 2}
   materials:
     importMaterials: 1
     materialName: 0
