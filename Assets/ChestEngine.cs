@@ -12,25 +12,13 @@ public class ChestEngine : MonoBehaviour
     public ChestItems chestItems;
     public bool isEmpty;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     public bool isGast;
 
-=======
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
-=======
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
     // Start is called before the first frame update
     void Start()
     {
         isOpen = false;
-<<<<<<< HEAD
-<<<<<<< HEAD
         isGast = false;
-=======
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
-=======
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
         RandItems();
     }
 
@@ -65,8 +53,6 @@ public class ChestEngine : MonoBehaviour
             closeChest = false;
             isOpen = false;
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
         if (isEmpty == true)
         {
             SpawnGast();
@@ -88,17 +74,9 @@ public class ChestEngine : MonoBehaviour
             isGast = true;
         }
     }
-
-=======
         //Debug.Log(doorPoint.localEulerAngles.y);
     }
 
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
-=======
-        //Debug.Log(doorPoint.localEulerAngles.y);
-    }
-
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
     public class ChestItems
     {
         public int wood;

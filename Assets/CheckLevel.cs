@@ -11,23 +11,12 @@ public class CheckLevel : MonoBehaviour
     public GameObject level;
     private GameObject obj;
 
-<<<<<<< HEAD
-<<<<<<< HEAD
     public LocalNavMeshBuilder localNavMeshBuilder;
 
-    public static int corridors = 4;
-    public static int rooms = 1;
-    public static int treasures = 1;
-=======
     public static int corridors = 2;
     public static int rooms = 1;
     public static int treasures = 0;
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
-=======
-    public static int corridors = 2;
-    public static int rooms = 1;
-    public static int treasures = 0;
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
+
     public static int levelId = 1;
 
     //private bool load = false;
@@ -48,15 +37,8 @@ public class CheckLevel : MonoBehaviour
         {
             if (rule.Tag == "corridor")
             {
-<<<<<<< HEAD
-<<<<<<< HEAD
-                rule.MinAmount = corridors - levelId;
-=======
                 rule.MinAmount = levelId;
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
-=======
-                rule.MinAmount = levelId;
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
+
                 rule.MaxAmount = corridors;
 
             }
@@ -73,23 +55,9 @@ public class CheckLevel : MonoBehaviour
                 rule.MaxAmount = treasures;
             }
         }
-<<<<<<< HEAD
-<<<<<<< HEAD
+        levelGenerator.MaxLevelSize = corridors + rooms + treasures + 1;
+        levelGenerator.MaxAllowedOrder = levelGenerator.MaxLevelSize;
 
-        levelGenerator.MaxLevelSize = corridors + rooms + treasures + 1;
-        levelGenerator.MaxAllowedOrder = levelGenerator.MaxLevelSize;
-        //Debug.Log(levelGenerator.MaxLevelSize * 100.0f);
-        //localNavMeshBuilder.m_Size = new Vector3(levelGenerator.MaxLevelSize * 100.0f, 40.0f, levelGenerator.MaxLevelSize * 100.0f);
-        Debug.Log(levelId * 100.0f);
-        localNavMeshBuilder.m_Size = new Vector3(levelId * 100.0f, 40.0f, levelId * 100.0f);
-=======
-        levelGenerator.MaxLevelSize = corridors + rooms + treasures + 1;
-        levelGenerator.MaxAllowedOrder = levelGenerator.MaxLevelSize;
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
-=======
-        levelGenerator.MaxLevelSize = corridors + rooms + treasures + 1;
-        levelGenerator.MaxAllowedOrder = levelGenerator.MaxLevelSize;
->>>>>>> 0979c7c83efeae87524b5bda6d592265f881fdac
         Debug.Log("Level: " + levelId + "Seed: " + levelGenerator.Seed);
         level_id = levelId;
     }
