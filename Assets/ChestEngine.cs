@@ -73,7 +73,6 @@ public class ChestEngine : MonoBehaviour
             }
             isGast = true;
         }
-    }
         //Debug.Log(doorPoint.localEulerAngles.y);
     }
 

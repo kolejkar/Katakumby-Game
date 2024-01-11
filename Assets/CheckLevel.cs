@@ -13,9 +13,9 @@ public class CheckLevel : MonoBehaviour
 
     public LocalNavMeshBuilder localNavMeshBuilder;
 
-    public static int corridors = 2;
+    public static int corridors = 4;
     public static int rooms = 1;
-    public static int treasures = 0;
+    public static int treasures = 1;
 
     public static int levelId = 1;
 
