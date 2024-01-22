@@ -55,7 +55,7 @@ public class ChestEngine : MonoBehaviour
         }
         if (isEmpty == true)
         {
-            SpawnGast();
+            //SpawnGast();
         }
         //Debug.Log(doorPoint.localEulerAngles.y);
     }
@@ -73,7 +73,6 @@ public class ChestEngine : MonoBehaviour
             }
             isGast = true;
         }
-        //Debug.Log(doorPoint.localEulerAngles.y);
     }
 
     public class ChestItems

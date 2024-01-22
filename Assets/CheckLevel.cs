@@ -72,9 +72,5 @@ public class CheckLevel : MonoBehaviour
             Destroy(obj);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
-        /*if (!load)
-        {
-            
-        }*/
     }
 }
