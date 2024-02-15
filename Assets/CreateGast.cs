@@ -9,6 +9,8 @@ public class CreateGast : MonoBehaviour
 
     private float timer = 0.0f;
 
+    public ChestEngine chestEngine;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -26,6 +28,7 @@ public class CreateGast : MonoBehaviour
                 var obj = Instantiate(gast, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                             Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                 obj.transform.parent = gameObject.transform;
+                chestEngine.gast = obj;
                 has_gast = true;
             }
         }

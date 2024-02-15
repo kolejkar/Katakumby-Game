@@ -79,12 +79,12 @@
     <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedList.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedListItem.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Structure\WeightedSectionList.cs" />
-    <Compile Include="Assets\MaskMaker.cs" />
     <Compile Include="Assets\MoveObjects.cs" />
     <Compile Include="Assets\Navigation\LocalNavMeshBuilder.cs" />
     <Compile Include="Assets\Navigation\NavMeshBake.cs" />
     <Compile Include="Assets\Navigation\NavMeshSourceTag.cs" />
     <Compile Include="Assets\OpenLight.cs" />
+    <Compile Include="Assets\PlayerSpawn.cs" />
     <Compile Include="Assets\Use_axe.cs" />
     <Compile Include="Assets\bridge_generator.cs" />
     <Compile Include="Assets\check_stairs.cs" />

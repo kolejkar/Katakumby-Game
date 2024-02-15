@@ -40,40 +40,28 @@ public class gast : MonoBehaviour
 
     void OnTriggerEnter(Collider coll)
     {
-        //Debug.Log("Touch collider in: " + coll.gameObject.name);
         if (coll.gameObject.name == "TourchLight")
         {
-            //Debug.Log("Light");
             TourchLight(coll.gameObject, false);
-            /*coll.gameObject.GetComponent<Light>().enabled = false;
-            object halo = coll.gameObject.GetComponent("Halo");
-            var haloInfo = halo.GetType().GetProperty("enabled");
-            haloInfo.SetValue(halo, false, null);*/
             items.Add(coll.gameObject);
         }
-        if (coll.gameObject.name == "gracz" && gameObject.activeSelf)
+        /*if (coll.gameObject.name == "gracz" && gameObject.activeSelf)
         {
             coll.gameObject.GetComponent<ImageCanvas>().image.gameObject.SetActive(true);
-        }
+        }*/
     }
 
     void OnTriggerExit(Collider coll)
     {
-        //Debug.Log("Touch collider out: " + coll.gameObject.name);
         if (coll.gameObject.name == "TourchLight")
         {
-            //Debug.Log("Light");
             TourchLight(coll.gameObject, true);
-            /*coll.gameObject.GetComponent<Light>().enabled = true;
-            object halo = coll.gameObject.GetComponent("Halo");
-            var haloInfo = halo.GetType().GetProperty("enabled");
-            haloInfo.SetValue(halo, true, null);*/
             items.Remove(coll.gameObject);
         }
-        if (coll.gameObject.name == "gracz")
+        /*if (coll.gameObject.name == "gracz")
         {
             coll.gameObject.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
-        }
+        }*/
     }
 
     private void TourchLight(GameObject tourchlight, bool active)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class AxeGost : MonoBehaviour
 {
@@ -14,10 +15,19 @@ public class AxeGost : MonoBehaviour
     {
         //health = 10;
         player = GameObject.Find("gracz");
+        attackPlayer = false;
     }
+
+    public NavMeshAgent Agent;
+    public Vector3 oldDestAgent;
+    public bool attackPlayer;
 
     void Update()
     {
+        if (attackPlayer)
+        {
+            Agent.SetDestination(player.transform.position);
+        }
         timer -= Time.deltaTime;
         if (timer <=0.0f)
         {
@@ -69,6 +79,8 @@ public class AxeGost : MonoBehaviour
     public AudioSource unVisible;
     public GameObject player;
 
+
+
     void OnTriggerEnter(Collider coll)
     {
         Debug.Log("Gost attack collider in: " + coll.gameObject.name);
@@ -77,6 +89,21 @@ public class AxeGost : MonoBehaviour
             health -= 5;
             Debug.Log("You attack gost");
             UpdateGost(transform.parent.gameObject);
+        }
+        else
+        if (coll.gameObject.name == "gracz" && action < 1)
+        {
+            oldDestAgent = Agent.destination;
+            attackPlayer = true;
+        }
+    }
+
+    void OnTriggerExit(Collider coll)
+    {
+        if (coll.gameObject.name == "gracz" && attackPlayer)
+        {
+            attackPlayer = false;
+            Agent.SetDestination(oldDestAgent);
         }
     }
 
@@ -119,6 +146,9 @@ public class AxeGost : MonoBehaviour
             }
 
             player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
+
+            attackPlayer = false;
+            Agent.SetDestination(oldDestAgent);
         }
     }
 }

@@ -133,7 +133,7 @@ public class engine : MonoBehaviour
                     battery++;
                 }
                 else
-                if (hitInfo.transform.gameObject.name == "bottle Variant")
+                if (hitInfo.transform.gameObject.name == "bottle")
                 {
                     Destroy(hitInfo.collider.gameObject);
                     water++;
@@ -273,22 +273,22 @@ public class engine : MonoBehaviour
 
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo);
+            Debug.Log("Hit attack: " + hitInfo.transform.gameObject.name + " " + hitInfo.distance);
             if (hit && hitInfo.distance < 1.75f)
             {
-                Debug.Log("Hit attack: " + hitInfo.transform.parent.gameObject.name + " " + hitInfo.distance);
                 if (hitInfo.transform.parent.gameObject.name == "secret(Clone)")
                 {
                     GameObject wall = hitInfo.transform.gameObject;
                     wall.GetComponent<wall_health>().health -= 2;
                 }
                 else
-                if (hitInfo.transform.parent.gameObject.name == "gost" || hitInfo.transform.parent.gameObject.name == "gost(Clone)")
+                if (hitInfo.transform.gameObject.name == "gast" || hitInfo.transform.gameObject.name == "gast(Clone)")
                 {
                     GameObject tmp_gost = hitInfo.transform.gameObject;
                     Debug.Log(tmp_gost.name);
-                    AxeGost axeGost = tmp_gost.transform.parent.Find("AttackSphere").GetComponent<AxeGost>();
+                    AxeGost axeGost = tmp_gost.transform.Find("AttackSphere").GetComponent<AxeGost>();
                     axeGost.health -= 4;
-                    axeGost.UpdateGost(tmp_gost.transform.parent.gameObject);
+                    axeGost.UpdateGost(tmp_gost.transform.gameObject);
                     /*hide_gost = tmp_gost.transform.parent.Find("AttackSphere").GetComponent<AudioSource>();
                     Debug.Log(hide_gost.gameObject.name);
                     hide_gost.Play();*/
@@ -308,6 +308,10 @@ public class engine : MonoBehaviour
                     light.GetComponent<OpenLight>().SetLight();
                 }
             }
+        }
+        if (Input.GetButtonDown("Cancel"))
+        {
+            Application.Quit();
         }
 
         info.text = "Woods: " + wood_boards + " Water: " + water + " Batteries: " + battery + "\nGasts: " + gasts;

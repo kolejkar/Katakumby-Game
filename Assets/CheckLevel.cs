@@ -65,12 +65,12 @@ public class CheckLevel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        LevelGenerator.Scripts.LevelGenerator levelGenerator = obj.GetComponent<LevelGenerator.Scripts.LevelGenerator>();
+        /*LevelGenerator.Scripts.LevelGenerator levelGenerator = obj.GetComponent<LevelGenerator.Scripts.LevelGenerator>();
         if (GameObject.Find("gracz") == null)
         {
             Debug.Log("Wrong seed: " + levelGenerator.Seed);
             Destroy(obj);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }
+        }*/
     }
 }

@@ -217,7 +217,7 @@ public class GPS : MonoBehaviour
         else
         if (room_name.IndexOf("room") > -1)
         {
-            room_name = room_name;
+            //room_name = room_name;
         }
         else
         {

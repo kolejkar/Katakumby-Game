@@ -30,12 +30,18 @@ public class ChestEngine : MonoBehaviour
         isEmpty = false;
     }
 
+    public GameObject gast;
+
     // Update is called once per frame
     void Update()
     {
         if (openChest == true && isOpen == false && (chestPoint.localEulerAngles.y < 15.0f || chestPoint.localEulerAngles.y > 358.0f))
         {
             chestPoint.Rotate(0.0f, 1.0f, 0.0f, Space.Self);
+            foreach(Transform t in gast.transform)
+            {
+                t.gameObject.SetActive(true);
+            }
         }
         else
         if (openChest == true)
