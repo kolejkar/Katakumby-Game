@@ -311,7 +311,7 @@ public class engine : MonoBehaviour
         }
         if (Input.GetButtonDown("Cancel"))
         {
-            Application.Quit();
+            
         }
 
         info.text = "Woods: " + wood_boards + " Water: " + water + " Batteries: " + battery + "\nGasts: " + gasts;

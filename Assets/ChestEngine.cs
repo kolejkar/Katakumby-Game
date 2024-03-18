@@ -70,9 +70,9 @@ public class ChestEngine : MonoBehaviour
     {
         if (isGast == false)
         {
-            int p = Random.Range(0, 100);
-            Debug.Log(p);
-            if (p < 30.0f)
+            //int p = Random.Range(0, 100);
+            //Debug.Log(p);
+            //if (p < 30.0f)
             {
                 CreateGast createGast = this.GetComponent<CreateGast>();
                 createGast.enabled = true;

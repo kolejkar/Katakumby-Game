@@ -125,7 +125,7 @@ public class AxeGost : MonoBehaviour
         this.gost = gost1;
         if (health < 0)
         {
-            player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
+            //player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
             Debug.Log("Killed gost");
             dead.Play();
             timer = 1.0f;
@@ -145,7 +145,7 @@ public class AxeGost : MonoBehaviour
                 r.enabled = !r.enabled;
             }
 
-            player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
+            //player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
 
             attackPlayer = false;
             Agent.SetDestination(oldDestAgent);

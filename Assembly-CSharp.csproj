@@ -65,6 +65,8 @@
     <Compile Include="Assets\DoorEngine.cs" />
     <Compile Include="Assets\DoorPlacer.cs" />
     <Compile Include="Assets\GPS.cs" />
+    <Compile Include="Assets\GUI_Button_Menager.cs" />
+    <Compile Include="Assets\GastTouchObj.cs" />
     <Compile Include="Assets\ImageCanvas.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\AdvancedExit.cs" />
     <Compile Include="Assets\LevelGenerator\Scripts\Bounds.cs" />
