@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class engine : MonoBehaviour
 {
     public bool use_axe;
-    public Animator axeAnim;
+    public Animation axeAnim;
 
     private float axe_timer = 0.0f; //first animation delay
 
@@ -238,7 +238,7 @@ public class engine : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && !use_axe)
         {
             item++;
             if (item < 3 && axe_timer <= 0.0f)
@@ -269,7 +269,7 @@ public class engine : MonoBehaviour
 
         if (Input.GetButtonDown("Fire1") && use_axe == false && axe_timer <= 0.0f)
         {
-            axeAnim.Play("Base Layer.Blend Tree", 0, 0.0f);
+            axeAnim.Play();
 
             RaycastHit hitInfo = new RaycastHit();
             bool hit = Physics.Raycast(cam.ScreenPointToRay(Input.mousePosition), out hitInfo);
@@ -322,8 +322,9 @@ public class engine : MonoBehaviour
             Debug.Log("Time normal axe: " + axeAnim.GetCurrentAnimatorStateInfo(0).normalizedTime);
             Debug.Log("Use axe: " + use_axe);*/
 
-            if (!(axeAnim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Blend Tree") &&
-                axeAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f))
+            if (!axeAnim.isPlaying)
+            //if (!(axeAnim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Blend Tree") &&
+            //    axeAnim.GetCurrentAnimatorStateInfo(0).normalizedTime < 1.0f))
             {
                 use_axe = false;
             }
