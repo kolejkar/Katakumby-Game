@@ -27,7 +27,7 @@ public class CreateGast : MonoBehaviour
             {
                 var obj = Instantiate(gast, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                             Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
-                obj.transform.parent = gameObject.transform;
+                obj.transform.parent = gameObject.transform.parent;
                 chestEngine.gast = obj;
                 has_gast = true;
             }

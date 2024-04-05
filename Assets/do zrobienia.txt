@@ -2,7 +2,7 @@ TODO:
 
 MUST HAVE:
 1. tekstury + model pochodni
-2. tekstura pokoju z pułkami
+2. tekstura pokoju z pułkami GOTOWE
 3. tekstura pokoju końcowego / przerobienie go :)
 4. ściana fejkowa przerobienie + tekstura
 5. grafika z tytułem gry do menu

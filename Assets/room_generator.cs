@@ -9,6 +9,7 @@ public class room_generator : MonoBehaviour
     public GameObject box;
     public GameObject bottle;
     public GameObject wood;
+    public GameObject chest;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,17 +34,17 @@ public class room_generator : MonoBehaviour
                 obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 180.0f, obj.transform.localRotation.z));
             }
         }
-        if (gameObject.name == "room_end")
+        if (this.gameObject.name == "room_end")
         {
             EndItems();
         }
         else
-        if (gameObject.name == "room_normal")
+        if (this.gameObject.name == "room_normal")
         {
             NormalItems();
         }
         else
-        if (gameObject.name == "room_crossing")
+        if (this.gameObject.name == "room_T_crossing")
         {
             CrossingItems();
         }
@@ -229,6 +230,15 @@ public class room_generator : MonoBehaviour
             obj.transform.parent = gameObject.transform;
             obj.transform.localPosition += new Vector3(2.211f, 0.567f, -2.28f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + -30.0f, obj.transform.localRotation.z));
+        }
+        value = Random.Range(0, 100);
+        if (value < 90.0f)
+        {
+            var obj = Instantiate(chest, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+              Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
+            obj.transform.parent = gameObject.transform;
+            obj.transform.localPosition += new Vector3(0.0f, 0.3f, 2.2f);
+            obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
         }
     }
 }

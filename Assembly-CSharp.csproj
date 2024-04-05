@@ -103,6 +103,9 @@
     <Compile Include="Assets\wall_health.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\do zrobienia.txt" />
+  </ItemGroup>
+  <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>C:\Program Files\Unity\Editor\2019.4.40f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
       <Private>False</Private>
