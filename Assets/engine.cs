@@ -9,8 +9,6 @@ public class engine : MonoBehaviour
     public bool use_axe;
     public Animation axeAnim;
 
-    private float axe_timer = 0.0f; //first animation delay
-
     public static int wood_boards = 0;
     public static int gasts = 0;
     public static int water = 0;
@@ -63,14 +61,11 @@ public class engine : MonoBehaviour
         //axe_rotate = axe.rotation;
         use_axe = false;
         item = 0;
-        axe_timer = 1.5f;
     }
 
     // Update is called once per frame
     void Update()
     {
-        axe_timer -= Time.deltaTime;
-
         isGrounded = Physics.CheckSphere(ground.position, groundDistance, layerMask);
 
         if (isGrounded && vorlocity.y < 0)
@@ -187,7 +182,7 @@ public class engine : MonoBehaviour
                     
                 }
                 else
-                if (hitInfo.transform.gameObject.name == "chest")
+                if (hitInfo.transform.gameObject.name == "chest(Clone)")
                 {
                     GameObject chest = hitInfo.transform.gameObject;
                     ChestEngine chestEngine = chest.GetComponent<ChestEngine>();
@@ -241,7 +236,7 @@ public class engine : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E) && !use_axe)
         {
             item++;
-            if (item < 3 && axe_timer <= 0.0f)
+            if (item < 3)
             {
                 if (item == 1)
                 {
@@ -263,11 +258,10 @@ public class engine : MonoBehaviour
                 light.SetActive(false);
                 book.gameObject.SetActive(false);
                 axeAnim.gameObject.SetActive(true);
-                axe_timer = 1.5f;
             }
         }
 
-        if (Input.GetButtonDown("Fire1") && use_axe == false && axe_timer <= 0.0f)
+        if (Input.GetButtonDown("Fire1") && use_axe == false && axeAnim.gameObject.activeSelf)
         {
             axeAnim.Play();
 
@@ -317,7 +311,7 @@ public class engine : MonoBehaviour
         info.text = "Woods: " + wood_boards + " Water: " + water + " Batteries: " + battery + "\nGasts: " + gasts;
 
         //if (use_axe == true)
-        {
+        //{
             /*Debug.Log(axeAnim.GetCurrentAnimatorStateInfo(0).IsName("Base Layer.Blend Tree"));
             Debug.Log("Time normal axe: " + axeAnim.GetCurrentAnimatorStateInfo(0).normalizedTime);
             Debug.Log("Use axe: " + use_axe);*/
@@ -332,6 +326,6 @@ public class engine : MonoBehaviour
             {
                 use_axe = true;
             }
-        }
+        //}
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GastTouchObj : MonoBehaviour
 {
@@ -20,7 +21,7 @@ public class GastTouchObj : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.name == "gracz")
+        if (other.gameObject.name == "gracz" && this.gameObject.GetComponent<Renderer>().enabled)
         {
             gui = FindObject(GameObject.Find("Canvas"), "EndGame");
             Cursor.visible = true;
