@@ -15,6 +15,17 @@ public class no_light : MonoBehaviour
             Destroy(touch1);
             Destroy(touch2);
         }
+        else
+        {
+            if (Random.Range(0, 100) > 50.0f)
+            {
+                Destroy(touch1);
+            }
+            else
+            {
+                Destroy(touch2);
+            }
+        }
     }
 
     // Update is called once per frame

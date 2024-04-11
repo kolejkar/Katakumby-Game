@@ -27,6 +27,7 @@ public class PlayerSpawn : MonoBehaviour
                             Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
                 obj.transform.parent = gameObject.transform;
                 obj.transform.position += new Vector3(0.0f, 3.95f, 0.0f);
+                obj.transform.localPosition += new Vector3(0.0f, 0.0f, 4.0f);
                 has_player = true;
             }
         }
