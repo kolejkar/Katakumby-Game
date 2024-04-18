@@ -96,7 +96,7 @@ public class engine : MonoBehaviour
             speedValue = Mathf.Sqrt(speed);
         }
 
-        characterController.Move(player.right * Input.GetAxis("Horizontal") + player.forward * Input.GetAxis("Vertical") * speedValue * Time.deltaTime);
+        characterController.Move(player.right * Input.GetAxis("Horizontal") * speedValue * Time.deltaTime + player.forward * Input.GetAxis("Vertical") * speedValue * Time.deltaTime);
 
         vorlocity.y += gravitiy * Time.deltaTime;
         characterController.Move(vorlocity * Time.deltaTime);
