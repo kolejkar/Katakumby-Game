@@ -47,8 +47,8 @@ Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz
 </table>
 <h3>Requirements:</h3>
 <p>
-  Unity 2019.4.40f1 version
-  Blender 2.81 version
+  Unity 2019.4.40f1 version <br>
+  Blender 2.81 version <br>
   Visual Studio
 </p>
 <h3 align="left">Languages and Tools:</h3>
