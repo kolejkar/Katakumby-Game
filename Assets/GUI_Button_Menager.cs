@@ -5,10 +5,15 @@ using UnityEngine.SceneManagement;
 
 public class GUI_Button_Menager : MonoBehaviour
 {
+    //For Menu scene
+    public GameObject mainMenu;
+    public GameObject control;
+    
     // Start is called before the first frame update
     void Start()
     {
-        
+        control.SetActive(false);
+        mainMenu.SetActive(true);
     }
 
     // Update is called once per frame
@@ -34,5 +39,17 @@ public class GUI_Button_Menager : MonoBehaviour
         CheckLevel.treasures = 1;
         CheckLevel.levelId = 1;
         SceneManager.LoadScene("Random_Level");
+    }
+
+    public void ControlClick()
+    {
+        control.SetActive(true);
+        mainMenu.SetActive(false);
+    }
+
+    public void BackToMenuClick()
+    {
+        control.SetActive(false);
+        mainMenu.SetActive(true);
     }
 }

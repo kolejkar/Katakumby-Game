@@ -7,7 +7,7 @@ MUST HAVE:
 4. tekstura pokoju końcowego / przerobienie go :)
 5. ściana fejkowa przerobienie + tekstura
 6. grafika z tytułem gry do menu
-7. opis sterowania
+7. opis sterowania GOTOWE
 
 SCHOULD HAVE:
 1. warianty ścian
