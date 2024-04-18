@@ -2,7 +2,8 @@
 <h3 align="center">Eksploracja losowych korytarzy i pomieszzeń.</h3>
 
 <p align="left">
-Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz poziomy.  
+Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz poziomy. <br>
+<a href="https://drive.google.com/file/d/1lgKDwHs3Xqs6MPcxHTIIq6Z9lgWH2Ch1/view?usp=sharing">Link do demo gry</a>
 </p>
 
 <h4>Sterowanie</h4>
