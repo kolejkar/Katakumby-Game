@@ -14,7 +14,7 @@ Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz
   </tr>
   <tr>
     <td>W</td>
-    <td>Ruch do przodu/td>
+    <td>Ruch do przodu</td>
   </tr>
   <tr>
     <td>S</td>
