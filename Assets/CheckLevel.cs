@@ -60,17 +60,34 @@ public class CheckLevel : MonoBehaviour
 
         Debug.Log("Level: " + levelId + "Seed: " + levelGenerator.Seed);
         level_id = levelId;
+
+        timer = 5.0f;
     }
+
+    private float timer = 0.0f;
 
     // Update is called once per frame
     void Update()
     {
-        /*LevelGenerator.Scripts.LevelGenerator levelGenerator = obj.GetComponent<LevelGenerator.Scripts.LevelGenerator>();
+        timer -= Time.deltaTime;
+        if (timer <= 0.0f)
+        {
+            CheckPlayer();
+        }
+    }
+
+    void CheckPlayer()
+    {
+        LevelGenerator.Scripts.LevelGenerator levelGenerator = obj.GetComponent<LevelGenerator.Scripts.LevelGenerator>();
         if (GameObject.Find("gracz") == null)
         {
             Debug.Log("Wrong seed: " + levelGenerator.Seed);
             Destroy(obj);
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-        }*/
+        }
+        else
+        {
+
+        }
     }
 }

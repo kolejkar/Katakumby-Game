@@ -8,7 +8,7 @@ MUST HAVE:
 5. ściana fejkowa przerobienie + tekstura GOTOWE
 6. grafika z tytułem gry do menu
 7. opis sterowania GOTOWE
-8. poprawienie ładowania poziomów (brak gracza na poziomie)
+8. poprawienie ładowania poziomów (brak gracza na poziomie) GOTOWE
 
 SCHOULD HAVE:
 1. warianty ścian
