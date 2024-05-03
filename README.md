@@ -42,8 +42,12 @@ Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz
     <td>Otworzenie książki lub włączenie światła.<td>
   </tr>
   <tr>
-    <td>Kliknięcie prawym klawiszem myszki</td>
-    <td>Interakcja z wybranymi przedmiotami (deski, butelki, drzwi, schody, itp.)<td>
+    <td>Kliknięcie prawym przyciskiem myszki</td>
+    <td>Zbieranie drewna, butelek, itp.<td>
+  </tr>
+  <tr>
+    <td>Kliknięcie lewym przyciskiem myszki</td>
+    <td>Otwieranie drzwi, naprawianie schodów, mostów, atakowanie toporem i zapalanie świec.</td>
   </tr>
 </table>
 <h3>Requirements:</h3>
