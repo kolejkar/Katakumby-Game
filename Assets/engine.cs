@@ -54,7 +54,7 @@ public class engine : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;
+        
         info.text = "Woods: " + wood_boards + " Water: " + water + " Batteries: " + battery + "\nGasts: " + gasts;
         //power = 20;
         light.SetActive(false);
@@ -214,6 +214,7 @@ public class engine : MonoBehaviour
                     CheckLevel.treasures = CheckLevel.levelId / 7 + 1;
                     CheckLevel.levelId++;
                     //NavMeshBake.surfaces.Clear();
+                    Cursor.lockState = CursorLockMode.None;
                     SceneManager.LoadScene(SceneManager.GetActiveScene().name);
                 }
                 //info.text = "Woods: " + wood_boards + " Water: " + water + " Batteries: " + battery + "\nGasts: " + gasts;

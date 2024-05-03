@@ -8,6 +8,7 @@ public class GUI_Button_Menager : MonoBehaviour
     //For Menu scene
     public GameObject mainMenu;
     public GameObject control;
+    public GameObject levelLoaded;
     
     // Start is called before the first frame update
     void Start()
@@ -51,5 +52,11 @@ public class GUI_Button_Menager : MonoBehaviour
     {
         control.SetActive(false);
         mainMenu.SetActive(true);
+    }
+
+    public void ConfirmClck()
+    {
+        Cursor.lockState = CursorLockMode.Locked;
+        levelLoaded.SetActive(false);
     }
 }
