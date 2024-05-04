@@ -8,11 +8,17 @@ public class DoorEngine : MonoBehaviour
     public bool closeDoor;
     public bool isOpen;
     public Transform doorPoint;
+
+    public AudioSource door1;
+    public AudioSource door2;
+
+    bool played;
     
     // Start is called before the first frame update
     void Start()
     {
         isOpen = false;
+        played = false;
     }
 
     // Update is called once per frame
@@ -27,6 +33,7 @@ public class DoorEngine : MonoBehaviour
         {
             openDoor = false;
             isOpen = true;
+            played = false;
         }
         if (closeDoor == true && isOpen == true && (doorPoint.localEulerAngles.y > 0.0f && doorPoint.localEulerAngles.y < 91.0f))
         {
@@ -34,10 +41,31 @@ public class DoorEngine : MonoBehaviour
         }
         else
         if (closeDoor == true)
-        {
+        {           
             closeDoor = false;
             isOpen = false;
+            played = false;
+        }
+        if (closeDoor || openDoor)
+        {
+            if (played == false)
+            {
+                PlaySound();
+                played = true;
+            }
         }
         //Debug.Log(doorPoint.localEulerAngles.y);
+    }
+
+    void PlaySound()
+    {
+        if (Random.Range(0, 100) > 50)
+        {
+            door1.Play();
+        }
+        else
+        {
+            door2.Play();
+        }
     }
 }

@@ -50,6 +50,7 @@ public class engine : MonoBehaviour
     public Transform dinamitePoint;
 
     public AudioSource hide_gost;
+    public AudioSource walk;
 
     // Start is called before the first frame update
     void Start()
@@ -61,7 +62,10 @@ public class engine : MonoBehaviour
         //axe_rotate = axe.rotation;
         use_axe = false;
         item = 0;
+        //before_move = characterController.transform;
     }
+
+    //Transform before_move;
 
     // Update is called once per frame
     void Update()
@@ -97,6 +101,17 @@ public class engine : MonoBehaviour
         }
 
         characterController.Move(player.right * Input.GetAxis("Horizontal") * speedValue * Time.deltaTime + player.forward * Input.GetAxis("Vertical") * speedValue * Time.deltaTime);
+
+        if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
+        {
+            if (!walk.isPlaying)
+                walk.Play();
+            //before_move = characterController.transform;
+        }
+        else
+        {
+            walk.Stop();
+        }
 
         vorlocity.y += gravitiy * Time.deltaTime;
         characterController.Move(vorlocity * Time.deltaTime);

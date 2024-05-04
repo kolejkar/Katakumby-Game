@@ -14,12 +14,17 @@ public class ChestEngine : MonoBehaviour
 
     public bool isGast;
 
+    public AudioSource chest;
+
+    bool played;
+
     // Start is called before the first frame update
     void Start()
     {
         isOpen = false;
         isGast = false;
         RandItems();
+        played = false;
     }
 
     void RandItems()
@@ -48,6 +53,7 @@ public class ChestEngine : MonoBehaviour
         {
             openChest = false;
             isOpen = true;
+            played = false;
         }
         if (closeChest == true && isOpen == true && (chestPoint.localEulerAngles.y > 0.0f && chestPoint.localEulerAngles.y < (15.0f + 1.0f)))
         {
@@ -58,10 +64,19 @@ public class ChestEngine : MonoBehaviour
         {
             closeChest = false;
             isOpen = false;
+            played = false;
         }
         if (isEmpty == true)
         {
             //SpawnGast();
+        }
+        if (closeChest || openChest)
+        {
+            if (played == false)
+            {
+                chest.Play();
+                played = true;
+            }
         }
         //Debug.Log(doorPoint.localEulerAngles.y);
     }
