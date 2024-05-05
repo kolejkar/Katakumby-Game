@@ -1,5 +1,5 @@
 <h1 align="center">Katakumby Game</h1>
-<h3 align="center">Eksploracja losowych korytarzy i pomieszzeń.</h3>
+<h3 align="center">Eksploracja losowych korytarzy i pomieszczeń.</h3>
 
 <p align="left">
 Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz poziomy. <br>
