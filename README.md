@@ -6,7 +6,7 @@ Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz
 <a href="https://drive.google.com/file/d/1lgKDwHs3Xqs6MPcxHTIIq6Z9lgWH2Ch1/view?usp=sharing">Link do demo gry</a>
 </p>
 
-<h4>Sterowanie</h4>
+<h3>Sterowanie:</h3>
 <p>Mysz i klawiatura.</p>
 <table>
   <tr>
@@ -50,6 +50,10 @@ Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz
     <td>Otwieranie drzwi, naprawianie schodów, mostów, atakowanie toporem i zapalanie świec.</td>
   </tr>
 </table>
+<p>
+  Dźwięki użyte w grze pochodzą z strony <a href="https://freesound.org/">freesound.org</a>
+</p>
+<h3>Galeria zdjęć z gry:</h3>
 <h3>Requirements:</h3>
 <p>
   Unity 2019.4.40f1 version <br>
