@@ -54,6 +54,12 @@ Zwiedzasz korytarze, rozwalasz ściany, unikasz duchów i ciemności, pokonujesz
   Dźwięki użyte w grze pochodzą z strony <a href="https://freesound.org/">freesound.org</a>
 </p>
 <h3>Galeria zdjęć z gry:</h3>
+<img src="https://i.pinimg.com/736x/72/a0/ba/72a0bab0d641c587cc9ef7d45d8a5e67.jpg" width="50%" height="50%">
+<img src="https://i.pinimg.com/736x/4e/f5/47/4ef547e5a0c5a55f4182df04245b874a.jpg" width="50%" height="50%">
+<img src="https://i.pinimg.com/736x/36/64/7e/36647e086615b4e5312ba6970a696f55.jpg" width="50%" height="50%">
+<img src="https://i.pinimg.com/736x/3d/2e/a1/3d2ea160b2e7fff7fcdc4efbaff754db.jpg" width="50%" height="50%">
+<img src="https://i.pinimg.com/736x/69/e6/b8/69e6b82952286df8388e096d5e8ed0a3.jpg" width="50%" height="50%">
+<img src="https://i.pinimg.com/736x/e0/75/96/e075969309a27b815afe7ea5cfcc4cb6.jpg" width="50%" height="50%">
 <h3>Requirements:</h3>
 <p>
   Unity 2019.4.40f1 version <br>
