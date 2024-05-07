@@ -4,7 +4,7 @@ MUST HAVE:
 1. tekstury + model pochodni GOTOWE
 2. animacja podpalania zniczy
 3. tekstura pokoju z pułkami GOTOWE
-4. tekstura pokoju końcowego / przerobienie go :)
+4. tekstura pokoju końcowego / przerobienie go :) WTRAKCIE
 5. ściana fejkowa przerobienie + tekstura GOTOWE
 6. grafika z tytułem gry do menu
 7. opis sterowania GOTOWE
@@ -13,6 +13,6 @@ MUST HAVE:
 SCHOULD HAVE:
 1. warianty ścian
 2. detale do pomieszczeń
-3. tło w menu
+3. tło w menu GOTOWE
 4. animacje napisów do zbieranych przedmiotów
 5. dodatkowe pomieszczenia / korytarze :)

@@ -86,6 +86,7 @@
     <Compile Include="Assets\Navigation\LocalNavMeshBuilder.cs" />
     <Compile Include="Assets\Navigation\NavMeshBake.cs" />
     <Compile Include="Assets\Navigation\NavMeshSourceTag.cs" />
+    <Compile Include="Assets\NewLevel.cs" />
     <Compile Include="Assets\OpenLight.cs" />
     <Compile Include="Assets\PlayerSpawn.cs" />
     <Compile Include="Assets\Use_axe.cs" />

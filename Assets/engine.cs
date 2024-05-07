@@ -224,13 +224,7 @@ public class engine : MonoBehaviour
                 else
                 if (hitInfo.transform.gameObject.name == "box_red")
                 {
-                    CheckLevel.corridors += 2;
-                    CheckLevel.rooms += 1;
-                    CheckLevel.treasures = CheckLevel.levelId / 7 + 1;
-                    CheckLevel.levelId++;
-                    //NavMeshBake.surfaces.Clear();
-                    Cursor.lockState = CursorLockMode.None;
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+                   
                 }
                 //info.text = "Woods: " + wood_boards + " Water: " + water + " Batteries: " + battery + "\nGasts: " + gasts;
             }

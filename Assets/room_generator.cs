@@ -6,14 +6,14 @@ public class room_generator : MonoBehaviour
 {
     public GameObject door_normal;
     public GameObject door_secret;
-    public GameObject box;
+    //public GameObject box;
     public GameObject bottle;
     public GameObject wood;
     public GameObject chest;
     // Start is called before the first frame update
     void Start()
     {
-        if (Random.Range(0, 100) < 50.0f && !(gameObject.name == "room_end"))
+        if (Random.Range(0, 100) < 50.0f /*&& !(gameObject.name == "room_end_spawn")*/)
         {
             Debug.Log("Create doors.");
             if (Random.Range(0, 100) < 70.0f)
@@ -34,7 +34,7 @@ public class room_generator : MonoBehaviour
                 obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 180.0f, obj.transform.localRotation.z));
             }
         }
-        if (this.gameObject.name == "room_end")
+        if (this.gameObject.name == "room_end_spawn")
         {
             EndItems();
         }
@@ -60,12 +60,12 @@ public class room_generator : MonoBehaviour
     {
         //if (Random.Range(0, 100) < 20.0f)
         //{
-        var obj1 = Instantiate(box, new Vector3(transform.position.x, transform.position.y, transform.position.z),
+        /*var obj1 = Instantiate(box, new Vector3(transform.position.x, transform.position.y, transform.position.z),
             Quaternion.Euler(new Vector3(transform.rotation.x, transform.rotation.y, transform.rotation.z)));
         obj1.transform.parent = gameObject.transform;
         obj1.transform.localPosition += new Vector3(0.0f, 0.75f, 0.0f);
         obj1.transform.localRotation = Quaternion.Euler(new Vector3(obj1.transform.localRotation.x, obj1.transform.localRotation.y, obj1.transform.localRotation.z));
-        //}
+        //}*/
         int value = Random.Range(0, 100);
         Debug.Log("Create items. Room end " + value);
         if (value < 50.0f)
@@ -73,22 +73,22 @@ public class room_generator : MonoBehaviour
             var obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(2.957f, 0.35f, -2.641f);
+            obj.transform.localPosition += new Vector3(2.957f, 3.35f, -2.641f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 28.69f, obj.transform.localRotation.z));
             obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(2.734f, 0.35f, -2.032f);
+            obj.transform.localPosition += new Vector3(2.734f, 3.35f, -2.032f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 13.61f, obj.transform.localRotation.z));
             obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(2.25f, 0.559f, -2.536f);
+            obj.transform.localPosition += new Vector3(2.25f, 3.559f, -2.536f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + -46.2f, obj.transform.localRotation.z));
             obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(1.719f, 0.35f, -3.073f);
+            obj.transform.localPosition += new Vector3(1.719f, 3.35f, -3.073f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 105.1f, obj.transform.localRotation.z));
         }
         if (value < 30.0f)
@@ -96,12 +96,12 @@ public class room_generator : MonoBehaviour
             var obj = Instantiate(bottle, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(2.98f, 0.4f, 3.21f);
+            obj.transform.localPosition += new Vector3(2.98f, 3.4f, 3.21f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
             obj = Instantiate(bottle, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(2.776f, 0.4f, 3.23f);
+            obj.transform.localPosition += new Vector3(2.776f, 3.4f, 3.23f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
         }
         if (value < 60.0f)
@@ -109,12 +109,12 @@ public class room_generator : MonoBehaviour
             var obj = Instantiate(wood, new Vector3(transform.position.x, transform.position.y, transform.position.z),
               Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(-0.149f, 0.35f, 2.184f);
+            obj.transform.localPosition += new Vector3(-0.149f, 3.35f, 2.184f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y + 31.8f, obj.transform.localRotation.z));
             obj = Instantiate(bottle, new Vector3(transform.position.x, transform.position.y, transform.position.z),
                 Quaternion.Euler(new Vector3(0.0f, 0.0f, 0.0f)));
             obj.transform.parent = gameObject.transform;
-            obj.transform.localPosition += new Vector3(-0.397f, 0.4f, 2.268f);
+            obj.transform.localPosition += new Vector3(-0.397f, 3.4f, 2.268f);
             obj.transform.localRotation = Quaternion.Euler(new Vector3(obj.transform.localRotation.x, obj.transform.localRotation.y, obj.transform.localRotation.z));
         }
     }
