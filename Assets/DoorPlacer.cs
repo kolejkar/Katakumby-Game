@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class DoorPlacer : MonoBehaviour
 {
-    public GameObject door;
+    public GameObject door_work;
+    public GameObject door_destroy;
 
     public GameObject mushroom;
     public GameObject mushroom1;
+
+    public bool isSpawn = false;
 
     // Start is called before the first frame update
     void Start()
@@ -15,7 +18,15 @@ public class DoorPlacer : MonoBehaviour
         float typ = Random.Range(0, 100);
         if (typ > 50.0f)
         {
-            door.SetActive(false);
+            typ = Random.Range(0, 100);
+            if (typ > 10.0f && isSpawn == false && CheckLevel.levelId > 1)
+            {
+                door_destroy.SetActive(true);
+            }
+            else
+            {
+                door_work.SetActive(true);
+            }
         }
 
         typ = Random.Range(0, 100);
@@ -36,5 +47,11 @@ public class DoorPlacer : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void RepairDoor()
+    {
+        door_work.SetActive(true);
+        door_destroy.SetActive(false);
     }
 }

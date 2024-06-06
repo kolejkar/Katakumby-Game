@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: room_rock
+    second: {fileID: 2100000, guid: f42d9a78238419848805eb7b335c2300, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: wood
     second: {fileID: 2100000, guid: a379553fd98e844438a1e40f392247dd, type: 2}
   materials:

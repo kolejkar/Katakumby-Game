@@ -51,11 +51,19 @@ public class GPS : MonoBehaviour
         
         string room_name_id = "";
 
+        bool end_spawn = false;
+
+        SpecialRoomType specialRoomType = SpecialRoomType.NONE;
+
         while (true)
         {
             room_id = Random.Range(0, items.Count);
             room_name_id = items[room_id].name;
             if (room_name_id.IndexOf("end_wall") > -1)
+            {
+                continue;
+            }
+            if (room_id == old_room_id+1 || room_id == old_room_id-1) //na zacinanie ducha przy niektórych pomieszczenieach
             {
                 continue;
             }
@@ -67,9 +75,20 @@ public class GPS : MonoBehaviour
 
         room_name_id = room_name_id.Replace("(Clone)", "");
 
-        if (room_name_id.IndexOf("room_spawn") > -1)
+        if (room_name_id.IndexOf("room_spawn") > -1 || room_name_id.IndexOf("room_end") > -1)
         {
+            if (room_name_id.IndexOf("room_spawn") > -1)
+            {
+                specialRoomType = SpecialRoomType.ROOM_SPAWN;
+            }
+            else
+            if (room_name_id.IndexOf("room_end") > -1)
+            {
+                specialRoomType = SpecialRoomType.ROOM_END;
+            }
             items[room_id] = FindInChildren(items[room_id], "room_end_spawn");
+            room_name_id = items[room_id].name;
+            end_spawn = true;
         }
         
         //Debug.Log(room_name_id);
@@ -81,6 +100,19 @@ public class GPS : MonoBehaviour
         floor = FindInChildren(floor, CheckSectionsName(room_name_id));
 
         //Debug.Log(floor.name);
+
+        if (end_spawn == true && specialRoomType != SpecialRoomType.NONE)
+        {
+            if (specialRoomType == SpecialRoomType.ROOM_SPAWN)
+            {
+                floor = FindInChildren(floor, "spawn");
+            }
+            else
+            if (specialRoomType == SpecialRoomType.ROOM_END)
+            {
+                floor = FindInChildren(floor, "end");
+            }
+        }
 
         floor = FindInChildren(floor, "Floor");
 
@@ -136,4 +168,11 @@ public class GPS : MonoBehaviour
         }
 
     }
+}
+
+public enum SpecialRoomType
+{
+    NONE,
+    ROOM_SPAWN,
+    ROOM_END
 }

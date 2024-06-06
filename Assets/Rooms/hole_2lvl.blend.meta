@@ -9,6 +9,11 @@ ModelImporter:
       assembly: UnityEngine.CoreModule
       name: concrete
     second: {fileID: 2100000, guid: 6668a1c50fd687540a146a5177acde26, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rock_hole
+    second: {fileID: 2100000, guid: f03462e44b6e8ba428894d2ce35df88d, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0

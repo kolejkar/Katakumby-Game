@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System.Linq;
 
 public class engine : MonoBehaviour
 {
@@ -51,6 +52,8 @@ public class engine : MonoBehaviour
 
     public AudioSource hide_gost;
     public AudioSource walk;
+    public AudioSource walk_wood;
+    public AudioSource walk_concrete;
 
     // Start is called before the first frame update
     void Start()
@@ -62,10 +65,17 @@ public class engine : MonoBehaviour
         //axe_rotate = axe.rotation;
         use_axe = false;
         item = 0;
+        walkDelay = 1.0f;
         //before_move = characterController.transform;
     }
 
     //Transform before_move;
+
+    private float walkDelay = 1.0f;
+
+    public Collider[] hitColliders;
+
+    public GameObject floor;
 
     // Update is called once per frame
     void Update()
@@ -80,6 +90,15 @@ public class engine : MonoBehaviour
         if (Input.GetButtonDown("Jump") && isGrounded)
         {
             vorlocity.y = Mathf.Sqrt(jump * -2.0f * gravitiy);
+        }
+
+        if (isGrounded)
+        {
+            hitColliders = Physics.OverlapSphere(ground.position, groundDistance, layerMask);
+            if (hitColliders.Length > 0)
+            {
+                floor = hitColliders.First().gameObject.transform.parent.gameObject;
+            }
         }
 
         float mouseX = Input.GetAxis("Mouse X") * mouseSpeed * Time.deltaTime;
@@ -104,13 +123,24 @@ public class engine : MonoBehaviour
 
         if (Input.GetButton("Horizontal") || Input.GetButton("Vertical"))
         {
-            if (!walk.isPlaying)
-                walk.Play();
+            if ((!walk.isPlaying || walk_wood.isPlaying || walk_concrete.isPlaying) && walkDelay <= 0.0f)
+            {
+                if (floor.name.IndexOf("Stair") > -1 || floor.name.IndexOf("bridge") > -1)
+                {
+                    walk_wood.Play();
+                }
+                else
+                if (floor.name.IndexOf("corridor") > -1 || floor.name.IndexOf("old") > -1)
+                {
+                    walk.Play();
+                }
+                else
+                {
+                    walk_concrete.Play();
+                }
+                walkDelay = 1.0f;
+            }
             //before_move = characterController.transform;
-        }
-        else
-        {
-            walk.Stop();
         }
 
         vorlocity.y += gravitiy * Time.deltaTime;
@@ -123,12 +153,20 @@ public class engine : MonoBehaviour
             if (hit && hitInfo.distance < 1.75f)
             {
                 Debug.Log("Hit " + hitInfo.transform.gameObject.name + " " + hitInfo.distance);
-                if (hitInfo.transform.gameObject.name == "box")
+                if (hitInfo.transform.gameObject.name == "BreakWoodDoor")
                 {
-                    Renderer rend = hitInfo.transform.gameObject.GetComponent<Renderer>();
-                    rend.material.color = new Color32(30, 91, 4, 255);
-                    //boxes++;
-                    Application.Quit();
+                    if (wood_boards >= 5)
+                    {
+                        GameObject breakdoor = hitInfo.transform.parent.gameObject;
+                        GameObject door = breakdoor.transform.parent.gameObject;
+                        door.GetComponent<DoorPlacer>().RepairDoor();
+                        Debug.Log(door.name);
+                        wood_boards = wood_boards - 5;
+                    }
+                    else
+                    {
+
+                    }
                 }
                 else
                 if (hitInfo.transform.gameObject.name == "wood")
@@ -319,6 +357,8 @@ public class engine : MonoBehaviour
         }
 
         info.text = "Woods: " + wood_boards + " Water: " + water + " Batteries: " + battery + "\nGasts: " + gasts;
+
+        walkDelay -= Time.deltaTime;
 
         //if (use_axe == true)
         //{
