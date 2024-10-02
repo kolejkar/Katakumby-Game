@@ -179,6 +179,13 @@ public class engine : MonoBehaviour
         hide_gost.Play();*/
     }
 
+    void HitSkeleton(RaycastHit hit)
+    {
+        GameObject skeleton = hit.transform.gameObject.transform.parent.gameObject;
+        Debug.Log("Skeleton: " + skeleton.name);
+        skeleton.GetComponent<SkeletonAI>().health -= 2;
+    }
+
     void PlayerUseAxe()
     {
         axeAnim.Play();
@@ -196,6 +203,11 @@ public class engine : MonoBehaviour
             if (hitInfo.transform.gameObject.name == "gast" || hitInfo.transform.gameObject.name == "gast(Clone)")
             {
                 HitGast(hitInfo);
+            }
+            else
+            if (hitInfo.transform.gameObject.name == "AttackBox")
+            {
+                HitSkeleton(hitInfo);
             }
         }
     }

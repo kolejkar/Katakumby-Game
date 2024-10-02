@@ -16,3 +16,5 @@ SCHOULD HAVE:
 3. tło w menu GOTOWE
 4. animacje napisów do zbieranych przedmiotów
 5. dodatkowe pomieszczenia / korytarze :)
+
+"skeleton" (https://skfb.ly/oZrxn) by local.yany is licensed under Creative Commons Attribution (http://creativecommons.org/licenses/by/4.0/).

@@ -90,6 +90,10 @@
     <Compile Include="Assets\NewLevel.cs" />
     <Compile Include="Assets\OpenLight.cs" />
     <Compile Include="Assets\PlayerSpawn.cs" />
+    <Compile Include="Assets\SkeletonAI.cs" />
+    <Compile Include="Assets\SkeletonAttack.cs" />
+    <Compile Include="Assets\SkeletonHit.cs" />
+    <Compile Include="Assets\SpawnSkeleton.cs" />
     <Compile Include="Assets\Use_axe.cs" />
     <Compile Include="Assets\bridge_generator.cs" />
     <Compile Include="Assets\check_stairs.cs" />
