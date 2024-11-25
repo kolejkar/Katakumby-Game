@@ -31,6 +31,7 @@ public class NewLevel : MonoBehaviour
             CheckLevel.rooms += 1;
             CheckLevel.treasures = CheckLevel.levelId / 7 + 1;
             CheckLevel.levelId++;
+            CheckLevel.stairs = CheckLevel.levelId / 10 + 1;
             //NavMeshBake.surfaces.Clear();
             Cursor.lockState = CursorLockMode.None;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);

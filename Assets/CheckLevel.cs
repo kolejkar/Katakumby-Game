@@ -13,9 +13,10 @@ public class CheckLevel : MonoBehaviour
 
     public LocalNavMeshBuilder localNavMeshBuilder;
 
-    public static int corridors = 4;
+    public static int corridors = 6;
     public static int rooms = 1;
     public static int treasures = 1;
+    public static int stairs = 1;
 
     public static int levelId = 1;
 
@@ -49,13 +50,19 @@ public class CheckLevel : MonoBehaviour
                 rule.MaxAmount = rooms;
             }
             else
+            if (rule.Tag == "stairs")
+            {
+                rule.MinAmount = stairs;
+                rule.MaxAmount = stairs;
+            }
+            else
             if (rule.Tag == "treasure")
             {
                 rule.MinAmount = treasures;
                 rule.MaxAmount = treasures;
             }
         }
-        levelGenerator.MaxLevelSize = corridors + rooms + treasures + 1;
+        levelGenerator.MaxLevelSize = corridors + rooms + treasures + stairs + 1;
         levelGenerator.MaxAllowedOrder = levelGenerator.MaxLevelSize;
 
         Debug.Log("Level: " + levelId + "Seed: " + levelGenerator.Seed);

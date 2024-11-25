@@ -18,6 +18,10 @@ public class SkeletonAI : MonoBehaviour
     public bool changeStatus;
     public bool hitPlayer;
     public bool dead;
+    public bool hitted;
+
+    public AudioSource bone;
+    public AudioSource idle;
 
     // Start is called before the first frame update
     void Start()
@@ -27,7 +31,9 @@ public class SkeletonAI : MonoBehaviour
         player = GameObject.Find("gracz");
         animation.clip = animation.GetClip("Idle");
         animation.Play();
+        idle.Play();
         dead = false;
+        hitted = false;
     }
 
     // Update is called once per frame
@@ -36,6 +42,10 @@ public class SkeletonAI : MonoBehaviour
         if (dead)
         {
             KilledSkeleton();
+        }
+        if (hitted)
+        {
+            HitSkeleton();
         }
         else
         {
@@ -49,9 +59,11 @@ public class SkeletonAI : MonoBehaviour
             {
                 if (changeStatus)
                 {
+                    idle.Stop();
                     animation.Stop();
                     animation.clip = animation.GetClip("Walk");
                     changeStatus = false;
+                    bone.Play();
                 }
                 if (!animation.isPlaying)
                 {
@@ -64,6 +76,8 @@ public class SkeletonAI : MonoBehaviour
             {
                 if (changeStatus)
                 {
+                    idle.Stop();
+                    bone.Stop();
                     animation.Stop();
                     animation.clip = animation.GetClip("Attack");
                     changeStatus = false;
@@ -78,9 +92,11 @@ public class SkeletonAI : MonoBehaviour
             {
                 if (changeStatus)
                 {
+                    bone.Stop();
                     animation.Stop();
                     animation.clip = animation.GetClip("Idle");
                     changeStatus = false;
+                    idle.Play();
                 }
                 if (!animation.isPlaying)
                 {
@@ -114,6 +130,8 @@ public class SkeletonAI : MonoBehaviour
     {
         if (changeStatus)
         {
+            idle.Stop();
+            bone.Stop();
             animation.Stop();
             animation.clip = animation.GetClip("Dead");
             changeStatus = false;
@@ -123,5 +141,31 @@ public class SkeletonAI : MonoBehaviour
         {
             Destroy(gameObject);
         }        
+    }
+
+    void HitSkeleton()
+    {
+        if (changeStatus)
+        {
+            idle.Stop();
+            bone.Stop();
+            Debug.Log("Hitted skeleton.");
+            animation.Stop();
+            animation.clip = animation.GetClip("Hit");
+            changeStatus = false;
+            animation.Play();
+        }
+        if (!animation.isPlaying)
+        {
+            hitted = false;
+            changeStatus = true;
+        }
+        Agent.ResetPath();
+    }
+
+    public void IsHitted()
+    {
+        changeStatus = true;
+        hitted = true;
     }
 }

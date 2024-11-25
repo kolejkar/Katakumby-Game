@@ -93,7 +93,7 @@ public class AxeGost : MonoBehaviour
         else
         if (coll.gameObject.name == "gracz" && action < 1)
         {
-            oldDestAgent = Agent.destination;
+            //oldDestAgent = Agent.destination;
             attackPlayer = true;
         }
     }
@@ -103,7 +103,7 @@ public class AxeGost : MonoBehaviour
         if (coll.gameObject.name == "gracz" && attackPlayer)
         {
             attackPlayer = false;
-            Agent.SetDestination(oldDestAgent);
+            //Agent.SetDestination(oldDestAgent);
         }
     }
 
@@ -148,7 +148,7 @@ public class AxeGost : MonoBehaviour
             //player.GetComponent<ImageCanvas>().image.gameObject.SetActive(false);
 
             attackPlayer = false;
-            Agent.SetDestination(oldDestAgent);
+            Agent.ResetPath();
         }
     }
 }

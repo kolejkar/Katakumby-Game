@@ -183,7 +183,9 @@ public class engine : MonoBehaviour
     {
         GameObject skeleton = hit.transform.gameObject.transform.parent.gameObject;
         Debug.Log("Skeleton: " + skeleton.name);
-        skeleton.GetComponent<SkeletonAI>().health -= 2;
+        SkeletonAI skeletonAI = skeleton.GetComponent<SkeletonAI>();
+        skeletonAI.health -= 2;
+        skeletonAI.IsHitted();
     }
 
     void PlayerUseAxe()
@@ -195,7 +197,7 @@ public class engine : MonoBehaviour
         Debug.Log("Hit attack: " + hitInfo.transform.gameObject.name + " " + hitInfo.distance);
         if (hit && hitInfo.distance < 1.75f)
         {
-            if (hitInfo.transform.parent.gameObject.name == "secret(Clone)")
+            if (hitInfo.transform.parent != null && hitInfo.transform.parent.gameObject.name == "secret(Clone)")
             {
                 HitRock(hitInfo);
             }
